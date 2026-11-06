@@ -4,7 +4,8 @@
   <title>Aaron | Desarrollo web y soluciones digitales</title>
   <meta name="description" content="Diseño y desarrollo de sitios web, bots para Discord y soluciones digitales a medida. Conoce el trabajo de Aaron y conversemos sobre tu proyecto.">
   
-  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;family=Manrope:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
 
   <style>
@@ -123,15 +124,15 @@
         extend: {
           colors: {
             hacker: {
-              bg: '#010736',
-              card: '#0D1C42',
-              cardAlt: '#142554',
-              accent: '#22396F',
-              cyan: '#4fd1c5',
-              green: '#8acb75',
-              gold: '#e4c98a',
-              muted: '#a1afc5',
-              border: '#344967'
+              bg: '#05070A',
+              card: '#0B1E3B',
+              cardAlt: '#101F38',
+              accent: '#101F38',
+              cyan: '#1FA97A',
+              green: '#1FA97A',
+              gold: '#1FA97A',
+              muted: '#B8C2CC',
+              border: '#1E344D'
             }
           },
           fontFamily: {
@@ -142,6 +143,232 @@
       }
     };
   </script>
+  <style>
+    :root {
+      color-scheme: dark;
+      --page: #05070A;
+      --surface: #0B1E3B;
+      --surface-raised: #101F38;
+      --ink: #FFFFFF;
+      --secondary: #B8C2CC;
+      --accent: #1FA97A;
+      --accent-hover: #2BC48A;
+      --line: #1E344D;
+    }
+
+    html,
+    body {
+      background: var(--page) !important;
+      color: var(--ink) !important;
+      font-family: 'Manrope', system-ui, sans-serif !important;
+      border: 0 !important;
+      outline: 0 !important;
+    }
+
+    body {
+      overflow-x: hidden;
+    }
+
+    .font-mono {
+      font-family: 'Manrope', system-ui, sans-serif !important;
+      font-style: normal !important;
+    }
+
+    .handwritten-name {
+      font-weight: inherit !important;
+    }
+
+    .max-w-7xl {
+      max-width: 1180px !important;
+    }
+
+    header {
+      background: rgba(5, 7, 10, 0.94) !important;
+      border-color: var(--line) !important;
+    }
+
+    header nav a,
+    details summary,
+    footer,
+    footer a {
+      color: var(--secondary) !important;
+    }
+
+    footer {
+      border-color: var(--line) !important;
+    }
+
+    main {
+      gap: clamp(4.5rem, 9vw, 7rem) !important;
+      padding-bottom: 4rem !important;
+    }
+
+    main > section {
+      scroll-margin-top: 6rem;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+      color: var(--ink) !important;
+      font-weight: 600 !important;
+      letter-spacing: -0.035em;
+    }
+
+    h1 {
+      line-height: 1.08 !important;
+    }
+
+    p {
+      line-height: 1.75;
+    }
+
+    [class~="text-white"] {
+      color: var(--ink) !important;
+    }
+
+    [class*="text-slate-"] {
+      color: var(--secondary) !important;
+    }
+
+    [class~="text-[#010736]"] {
+      color: #05070A !important;
+    }
+
+    [class*="text-emerald-"],
+    [class*="text-amber-"],
+    [class*="text-[#5865F2]"] {
+      color: var(--accent) !important;
+    }
+
+    [class*="bg-hacker-card"] {
+      background-color: var(--surface) !important;
+    }
+
+    [class~="bg-hacker-bg"] {
+      background-color: var(--page) !important;
+    }
+
+    [class*="bg-[#010736]"] {
+      background-color: var(--surface-raised) !important;
+    }
+
+    [class*="bg-[#0D1C42]"] {
+      background-color: var(--surface) !important;
+    }
+
+    [class*="bg-hacker-accent"],
+    [class*="bg-white/"] {
+      background-color: var(--surface-raised) !important;
+    }
+
+    [class*="bg-emerald-"],
+    [class*="bg-amber-"],
+    [class*="bg-[#5865F2]"] {
+      background-color: var(--surface-raised) !important;
+    }
+
+    [class*="border-hacker-border"],
+    [class*="border-white/"],
+    [class*="border-emerald-"],
+    [class*="border-amber-"],
+    [class*="border-[#5865F2]"] {
+      border-color: var(--line) !important;
+    }
+
+    a[class*="px-"][class*="py-"],
+    button,
+    summary {
+      min-height: 44px;
+    }
+
+    input,
+    select,
+    textarea {
+      background-color: var(--surface-raised) !important;
+      border-color: var(--line) !important;
+      border-radius: 0.625rem !important;
+      color: #FFFFFF !important;
+      font-size: 1rem !important;
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+      color: var(--secondary) !important;
+      opacity: 1;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: var(--accent) !important;
+      --tw-ring-color: var(--accent) !important;
+    }
+
+    button,
+    a[class*="bg-hacker-cyan"],
+    a[class*="bg-hacker-green"] {
+      background-color: var(--accent) !important;
+      color: #05070A !important;
+      transition: background-color 180ms ease, color 180ms ease, border-color 180ms ease !important;
+    }
+
+    a[class*="border-white/"],
+    a[class*="bg-white/"] {
+      background-color: var(--surface-raised) !important;
+      border-color: var(--line) !important;
+      color: #FFFFFF !important;
+    }
+
+    a[class*="px-"][class*="py-"]:hover,
+    button:hover {
+      filter: none !important;
+      background-color: var(--accent-hover) !important;
+      opacity: 1;
+    }
+
+    .typewriter-caret {
+      border-color: var(--accent);
+    }
+
+    @media (max-width: 640px) {
+      main {
+        gap: 4.5rem !important;
+        padding-top: 5.5rem !important;
+      }
+
+      main > section {
+        padding-left: 1.25rem !important;
+        padding-right: 1.25rem !important;
+      }
+
+      main > section:first-child {
+        padding-top: 2rem !important;
+      }
+
+      h1 {
+        font-size: clamp(2.6rem, 12vw, 3.5rem) !important;
+      }
+
+      h2 {
+        font-size: clamp(1.75rem, 8vw, 2.25rem) !important;
+      }
+
+      a[class*="px-"][class*="py-"],
+      button {
+        min-height: 48px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
 </head>
 <body class="bg-hacker-bg text-slate-100 antialiased selection:bg-hacker-cyan selection:text-black relative">
 
