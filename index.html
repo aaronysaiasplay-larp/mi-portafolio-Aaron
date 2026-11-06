@@ -1,9 +1,10 @@
 <!DOCTYPE html><html class="dark scroll-smooth" lang="es"><head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Aaron | Desarrollo web, bots e inteligencia artificial</title>
+  <title>Aaron | Desarrollo web y soluciones digitales</title>
+  <meta name="description" content="Diseño y desarrollo de sitios web, bots para Discord y soluciones digitales a medida. Conoce el trabajo de Aaron y conversemos sobre tu proyecto.">
   
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&amp;family=Manrope:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;family=Manrope:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
 
   <style>
@@ -24,30 +25,24 @@
       font-family: 'Manrope', sans-serif;
       letter-spacing: -0.035em;
     }
-    
-    /* Custom scanlines & glow effects */
-    .scanline-bg {
-      background: linear-gradient(rgba(1, 7, 54, 0) 50%, rgba(0, 0, 0, 0.35) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
-      background-size: 100% 4px, 6px 100%;
-      pointer-events: none;
+
+    .handwritten-name {
+      font-family: 'Caveat', cursive;
+      font-style: italic;
+      font-size: 1.15em;
     }
-    
-    @keyframes terminal-blink {
-      0%, 49% { opacity: 1; }
-      50%, 100% { opacity: 0; }
+
+    .typewriter-caret {
+      border-right: 2px solid #4fd1c5;
+      animation: caret-blink 800ms steps(2, start) infinite;
     }
-    .animate-blink {
-      animation: terminal-blink 1s infinite;
+
+    @keyframes caret-blink {
+      to { border-color: transparent; }
     }
     
     .glow-cyan {
-      box-shadow: 0 0 25px rgba(0, 255, 204, 0.25);
-    }
-    .glow-gold {
-      box-shadow: 0 0 20px rgba(252, 241, 208, 0.18);
-    }
-    .text-glow-cyan {
-      text-shadow: 0 0 10px rgba(0, 255, 204, 0.6);
+      box-shadow: 0 0 18px rgba(79, 209, 197, 0.1);
     }
 
     .pointer-aura {
@@ -58,7 +53,7 @@
       width: 9rem;
       height: 9rem;
       border-radius: 9999px;
-      background: radial-gradient(circle, rgba(0, 255, 204, 0.13) 0%, rgba(0, 255, 204, 0.055) 38%, transparent 72%);
+      background: radial-gradient(circle, rgba(79, 209, 197, 0.13) 0%, rgba(79, 209, 197, 0.055) 38%, transparent 72%);
       filter: blur(18px);
       opacity: 0;
       pointer-events: none;
@@ -70,11 +65,13 @@
     .pointer-aura.is-active {
       opacity: 1;
     }
-
+    .glow-gold {
+      box-shadow: 0 0 20px rgba(252, 241, 208, 0.18);
+    }
     .scroll-reveal {
       opacity: 0;
       transform: translate3d(0, 24px, 0);
-      transition: opacity 700ms ease, transform 700ms cubic-bezier(0.2, 0.7, 0.2, 1);
+      transition: opacity 500ms ease, transform 500ms cubic-bezier(0.2, 0.7, 0.2, 1);
     }
 
     .scroll-reveal.is-visible {
@@ -83,24 +80,23 @@
     }
 
     .motion-card {
-      transition: opacity 700ms ease, transform 700ms cubic-bezier(0.2, 0.7, 0.2, 1), border-color 300ms ease, box-shadow 300ms ease;
+      transition: opacity 500ms ease, transform 500ms cubic-bezier(0.2, 0.7, 0.2, 1), border-color 200ms ease, box-shadow 200ms ease;
     }
 
     .motion-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 12px 35px rgba(0, 255, 204, 0.1);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
     }
 
     @media (hover: hover) and (pointer: fine) {
       a[class*="px-"][class*="py-"],
       button {
-        transition: box-shadow 1.4s ease, filter 1.4s ease;
+        transition: filter 200ms ease;
       }
 
       a[class*="px-"][class*="py-"]:not(:active):hover,
       button:not(:active):hover {
-        box-shadow: 0 0 20px rgba(0, 255, 204, 0.12) !important;
-        filter: brightness(1.025);
+        filter: brightness(1.06);
       }
     }
 
@@ -131,11 +127,11 @@
               card: '#0D1C42',
               cardAlt: '#142554',
               accent: '#22396F',
-              cyan: '#00ffcc',
-              green: '#74ff56',
-              gold: '#FCF1D0',
-              muted: '#8e9cc2',
-              border: '#2a4485'
+              cyan: '#4fd1c5',
+              green: '#8acb75',
+              gold: '#e4c98a',
+              muted: '#a1afc5',
+              border: '#344967'
             }
           },
           fontFamily: {
@@ -149,29 +145,40 @@
 </head>
 <body class="bg-hacker-bg text-slate-100 antialiased selection:bg-hacker-cyan selection:text-black relative">
 
-  <!-- Scanline CRT Overlay -->
-  <div class="fixed inset-0 scanline-bg z-40 opacity-10 pointer-events-none"></div>
-  <div id="pointerAura" class="pointer-aura" aria-hidden="true"></div>
-
   <!-- Ambient Glow Blobs -->
+  <div id="pointerAura" class="pointer-aura" aria-hidden="true"></div>
   <div class="fixed top-12 left-1/4 w-[32rem] h-[32rem] bg-hacker-cyan/5 rounded-full blur-[140px] pointer-events-none -z-10"></div>
   <div class="fixed bottom-20 right-10 w-[36rem] h-[36rem] bg-hacker-accent/20 rounded-full blur-[160px] pointer-events-none -z-10"></div>
 
   <header class="fixed top-0 left-0 w-full z-50 bg-[#010736]/85 backdrop-blur-xl border-b border-white/10">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
       <a href="#inicio" class="font-sans font-extrabold text-lg tracking-tight text-white hover:text-hacker-cyan transition-colors">
-        Aaron<span class="text-hacker-cyan">.</span>
+        <span class="handwritten-name">Aaron</span><span class="text-hacker-cyan">.</span>
       </a>
 
-      <nav class="hidden md:flex items-center gap-7 font-sans text-sm">
+      <nav aria-label="Navegación principal" class="hidden md:flex items-center gap-7 font-sans text-sm">
         <a href="#sobre-mi" class="text-slate-300 hover:text-white transition-colors">Sobre mí</a>
         <a href="#proyectos" class="text-slate-300 hover:text-white transition-colors">Proyectos</a>
         <a href="#habilidades" class="text-slate-300 hover:text-white transition-colors">Servicios</a>
         <a href="#contacto" class="text-slate-300 hover:text-white transition-colors">Contacto</a>
       </nav>
 
+      <details class="relative md:hidden">
+        <summary class="flex cursor-pointer list-none items-center gap-2 rounded-full border border-white/15 px-3 py-2 text-sm text-slate-200">
+          Menú
+          <span class="material-symbols-outlined text-lg">menu</span>
+        </summary>
+        <nav aria-label="Navegación móvil" class="absolute right-0 top-full mt-3 flex min-w-44 flex-col gap-1 rounded-xl border border-white/10 bg-[#0D1C42] p-2 shadow-xl">
+          <a href="#sobre-mi" class="rounded-lg px-3 py-2 text-sm text-slate-200 hover:bg-white/5">Sobre mí</a>
+          <a href="#cursos" class="rounded-lg px-3 py-2 text-sm text-slate-200 hover:bg-white/5">Formación</a>
+          <a href="#proyectos" class="rounded-lg px-3 py-2 text-sm text-slate-200 hover:bg-white/5">Proyectos</a>
+          <a href="#habilidades" class="rounded-lg px-3 py-2 text-sm text-slate-200 hover:bg-white/5">Servicios</a>
+          <a href="#contacto" class="rounded-lg px-3 py-2 text-sm text-slate-200 hover:bg-white/5">Contacto</a>
+        </nav>
+      </details>
+
       <a href="#contacto" class="inline-flex items-center gap-2 px-4 py-2 font-sans text-sm font-semibold text-[#010736] bg-hacker-cyan hover:bg-white transition-all rounded-full">
-        Hablemos
+        Contactar
         <span class="material-symbols-outlined text-base">arrow_outward</span>
       </a>
     </div>
@@ -185,25 +192,28 @@
         <div class="lg:col-span-7">
           <div class="inline-flex items-center gap-2 text-sm text-slate-300 mb-6">
             <span class="w-2 h-2 rounded-full bg-hacker-cyan"></span>
-            Desarrollador creativo
+            DESARROLLO WEB · BOTS · SOLUCIONES CON IA
           </div>
 
           <h1 class="text-5xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white leading-[1.05] mb-6">
-            Hola, soy Aaron<span class="text-hacker-cyan">.</span>
-            <span class="block text-slate-300 mt-2">Creo experiencias digitales.</span>
+            Hola, soy <span class="handwritten-name">Aaron</span><span class="text-hacker-cyan">.</span>
+            <span class="block min-h-[2.2em] text-slate-300 mt-2">
+              <span id="heroPhrase" class="typewriter-caret" aria-hidden="true">Una web para mostrar tu negocio.</span>
+              <span class="sr-only">Una web para mostrar tu negocio, un bot para tu comunidad y un asistente de IA para responder consultas.</span>
+            </span>
           </h1>
 
           <p class="text-base sm:text-lg text-slate-300 leading-relaxed max-w-xl mb-8">
-            Desarrollo sitios web, bots y soluciones con inteligencia artificial. Me gusta aprender, experimentar con nuevas ideas y convertirlas en proyectos útiles.
+            Diseño y desarrollo sitios web y herramientas digitales a medida para presentar tu marca y conectar con tus clientes.
           </p>
 
           <div class="flex flex-wrap items-center gap-4">
             <a href="#proyectos" class="px-6 py-3 bg-hacker-cyan text-[#010736] font-sans font-bold text-sm rounded-full hover:bg-white transition-all inline-flex items-center gap-2">
-              Ver mis proyectos
+              Explorar proyectos
               <span class="material-symbols-outlined text-lg">arrow_forward</span>
             </a>
             <a href="#contacto" class="px-6 py-3 border border-white/20 text-white font-sans font-semibold text-sm rounded-full hover:border-hacker-cyan hover:text-hacker-cyan transition-all">
-              Hablemos
+              Solicitar una propuesta
             </a>
           </div>
         </div>
@@ -212,36 +222,36 @@
           <div class="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-hacker-card to-[#07102b] p-7 sm:p-9">
             <div class="absolute -top-20 -right-16 w-56 h-56 rounded-full bg-hacker-cyan/10 blur-3xl pointer-events-none"></div>
             <div class="relative">
-              <p class="text-sm text-slate-400 mb-2">Lo que me inspira</p>
-              <h2 class="text-2xl sm:text-3xl font-bold tracking-tight text-white mb-7">Tecnología con propósito.</h2>
+              <p class="text-sm text-slate-400 mb-2">Enfoque</p>
+              <h2 class="text-2xl sm:text-3xl font-bold tracking-tight text-white mb-7">Tecnología al servicio de tus ideas.</h2>
 
               <div class="space-y-5">
                 <div class="flex items-start gap-4">
                   <span class="material-symbols-outlined text-hacker-cyan">language</span>
                   <div>
                     <h3 class="font-semibold text-white">Desarrollo web</h3>
-                    <p class="text-sm text-slate-400 mt-1">Experiencias claras, atractivas y funcionales.</p>
+                    <p class="text-sm text-slate-400 mt-1">Sitios claros, atractivos y adaptables.</p>
                   </div>
                 </div>
                 <div class="flex items-start gap-4">
                   <span class="material-symbols-outlined text-hacker-cyan">smart_toy</span>
                   <div>
                     <h3 class="font-semibold text-white">Bots e inteligencia artificial</h3>
-                    <p class="text-sm text-slate-400 mt-1">Herramientas que automatizan y resuelven.</p>
+                    <p class="text-sm text-slate-400 mt-1">Bots y funciones inteligentes para tu proyecto.</p>
                   </div>
                 </div>
                 <div class="flex items-start gap-4">
                   <span class="material-symbols-outlined text-hacker-cyan">sports_esports</span>
                   <div>
                     <h3 class="font-semibold text-white">Proyectos creativos</h3>
-                    <p class="text-sm text-slate-400 mt-1">Ideas nuevas llevadas a la práctica.</p>
+                    <p class="text-sm text-slate-400 mt-1">Cada solución parte de una necesidad concreta.</p>
                   </div>
                 </div>
               </div>
 
               <div class="mt-8 pt-5 border-t border-white/10 flex items-center gap-2 text-sm text-slate-300">
                 <span class="w-2 h-2 rounded-full bg-hacker-green"></span>
-                Disponible para nuevos proyectos
+                Disponible para conversar sobre tu proyecto
               </div>
             </div>
           </div>
@@ -250,28 +260,25 @@
     </section>
 
 
-    <!-- 2. SOBRE MÍ SECTION // EXPEDIENTE & PERSONALIDAD -->
+    <!-- Sobre mí -->
     <section id="sobre-mi" class="max-w-7xl mx-auto px-4 sm:px-6 w-full scroll-mt-28">
       
       <!-- Section Header -->
       <div class="flex items-center gap-3 mb-6">
-        <span class="font-mono text-xs text-hacker-cyan uppercase tracking-widest font-bold bg-hacker-card px-3 py-1 rounded border border-hacker-border">
-          01 // ARCHIVO_PERSONAL
+        <span class="font-sans text-xs text-hacker-cyan font-semibold bg-hacker-card px-3 py-1 rounded border border-hacker-border">
+          Sobre mí
         </span>
         <div class="h-px bg-hacker-border flex-1"></div>
       </div>
 
       <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
         <div>
-          <h2 class="text-3xl sm:text-4xl font-black font-mono text-white tracking-tight uppercase">
-            SOBRE MÍ // <span class="text-hacker-gold">EXPEDIENTE AARON</span>
+          <h2 class="text-3xl sm:text-4xl font-black text-white tracking-tight">
+            Sobre mí
           </h2>
           <p class="text-slate-300 text-sm sm:text-base font-sans mt-2 max-w-2xl">
-            Conoce el trasfondo, mentalidad y energía que impulsa cada línea de código que escribo.
+            Desarrollo web y programación con enfoque en soluciones prácticas, funcionales y cuidadas.
           </p>
-        </div>
-        <div class="font-mono text-xs text-hacker-muted bg-hacker-card/70 px-3 py-2 rounded border border-hacker-border self-start md:self-auto">
-          ID: #DEV-AARON // STATUS: VERIFIED
         </div>
       </div>
 
@@ -286,8 +293,8 @@
                   A
                 </div>
                 <div>
-                  <h3 class="font-mono font-bold text-lg text-white">Aaron</h3>
-                  <p class="font-mono text-xs text-hacker-gold">Programador &amp; Creador Digital</p>
+                  <h3 class="font-mono font-bold text-lg text-white"><span class="handwritten-name">Aaron</span></h3>
+                  <p class="font-mono text-xs text-hacker-gold">Desarrollo web y programación</p>
                 </div>
               </div>
               <span class="material-symbols-outlined text-hacker-cyan text-3xl">psychology</span>
@@ -295,13 +302,13 @@
 
             <div class="space-y-4 text-slate-300 font-sans leading-relaxed text-sm sm:text-base">
               <p class="">
-                ¡Hola! Soy <strong class="text-white font-semibold">Aaron</strong>, un desarrollador impulsado por la curiosidad incesante y el amor por los desafíos lógicos. Mi pasión por la programación nació de la mano de los <strong class="text-hacker-gold font-medium">videojuegos</strong>: comprender cómo funcionan los mundos virtuales me llevó a querer construirlos yo mismo.
+                Soy <strong class="handwritten-name text-white font-semibold">Aaron</strong>, desarrollador web en formación. Trabajo en proyectos de sitios web, bots e inteligencia artificial, con atención al detalle y una actitud constante de aprendizaje.
               </p>
               <p class="">
-                Tengo un estilo muy particular: <span class="text-hacker-cyan font-mono font-semibold">"me gusta frontear todo lo nuevo que consigo"</span>. Cada vez que aprendo una nueva librería, un nuevo framework o una innovación en IA, la pongo a prueba de inmediato en proyectos reales.
+                Mi objetivo es entender qué necesita cada proyecto y transformarlo en una experiencia digital clara, funcional y fácil de usar.
               </p>
               <p class="">
-                Disfruto muchísimo el <strong class="text-white">idioma inglés</strong> para consumir documentación técnica de primera mano, conectar internacionalmente, y en mis momentos de desconexión, nada supera <strong class="text-hacker-gold">jugar y compartir buenos momentos con mi hermana</strong>, lo que mantiene siempre encendido mi lado creativo y colaborativo.
+                Fuera de la programación, me interesa el <strong class="text-white">inglés</strong> y disfruto compartir tiempo <strong class="text-hacker-gold">jugando con mi hermana</strong>.
               </p>
             </div>
           </div>
@@ -309,20 +316,20 @@
           <!-- Trait Badges -->
           <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5 mt-8 pt-6 border-t border-hacker-border/60 font-mono text-xs">
             <div class="bg-[#010736] p-2.5 rounded border border-hacker-border text-center">
-              <span class="block text-hacker-cyan font-bold">GAMER</span>
-              <span class="text-[10px] text-hacker-muted">Gameplay Logic</span>
+              <span class="block text-hacker-cyan font-bold">VIDEOJUEGOS</span>
+              <span class="text-[10px] text-hacker-muted">Una de mis aficiones</span>
             </div>
             <div class="bg-[#010736] p-2.5 rounded border border-hacker-border text-center">
-              <span class="block text-hacker-gold font-bold">FRONTEADOR</span>
-              <span class="text-[10px] text-hacker-muted">Early Adopter</span>
+              <span class="block text-hacker-gold font-bold">CURIOSO</span>
+              <span class="text-[10px] text-hacker-muted">Siempre aprendiendo</span>
             </div>
             <div class="bg-[#010736] p-2.5 rounded border border-hacker-border text-center">
-              <span class="block text-hacker-green font-bold">ENGLISH</span>
-              <span class="text-[10px] text-hacker-muted">Bilingual Skills</span>
+              <span class="block text-hacker-green font-bold">INGLÉS</span>
+              <span class="text-[10px] text-hacker-muted">En aprendizaje</span>
             </div>
             <div class="bg-[#010736] p-2.5 rounded border border-hacker-border text-center">
-              <span class="block text-white font-bold">FAMILY</span>
-              <span class="text-[10px] text-hacker-muted">Player 2 Bonds</span>
+              <span class="block text-white font-bold">FAMILIA</span>
+              <span class="text-[10px] text-hacker-muted">Tiempo en familia</span>
             </div>
           </div>
         </div>
@@ -336,12 +343,12 @@
                 <span class="material-symbols-outlined text-xl">sports_esports</span>
               </div>
               <div>
-                <h4 class="font-mono font-bold text-white text-sm">Pasión por los Videojuegos</h4>
-                <p class="font-mono text-[11px] text-hacker-muted">Mecánicas, sistemas de decisión y diversión</p>
+                <h4 class="font-mono font-bold text-white text-sm">Interés por los videojuegos</h4>
+                <p class="font-mono text-[11px] text-hacker-muted">Una de mis principales aficiones</p>
               </div>
             </div>
             <p class="text-xs text-slate-300 font-sans leading-relaxed">
-              La mentalidad gamer aplicada a la resolución de bugs: iteración rápida, perseverancia ante problemas complejos y diseño interactivo.
+              Los videojuegos despertaron mi curiosidad por la programación y por la forma en que se construyen las experiencias interactivas.
             </p>
           </div>
 
@@ -351,12 +358,12 @@
                 <span class="material-symbols-outlined text-xl">translate</span>
               </div>
               <div>
-                <h4 class="font-mono font-bold text-white text-sm">Inglés Técnico &amp; Fluidez</h4>
-                <p class="font-mono text-[11px] text-hacker-muted">Lectura rápida de docs &amp; papers</p>
+                <h4 class="font-mono font-bold text-white text-sm">Interés por el inglés</h4>
+                <p class="font-mono text-[11px] text-hacker-muted">Aprendizaje continuo</p>
               </div>
             </div>
             <p class="text-xs text-slate-300 font-sans leading-relaxed">
-              Capacidad de entender APIs en inglés inmediatamente y trabajar con software y comunidades internacionales sin barreras idiomáticas.
+              Disfruto aprender el idioma y practicarlo con contenidos sobre tecnología.
             </p>
           </div>
 
@@ -366,12 +373,12 @@
                 <span class="material-symbols-outlined text-xl">diversity_3</span>
               </div>
               <div>
-                <h4 class="font-mono font-bold text-white text-sm">Empatía &amp; Trabajo en Equipo</h4>
-                <p class="font-mono text-[11px] text-hacker-muted">Jugar y compartir con mi hermana</p>
+                <h4 class="font-mono font-bold text-white text-sm">Tiempo en familia</h4>
+                <p class="font-mono text-[11px] text-hacker-muted">Compartir y jugar</p>
               </div>
             </div>
             <p class="text-xs text-slate-300 font-sans leading-relaxed">
-              Saber cooperar, escuchar y tener paciencia son valores que cultivo tanto en la vida diaria como en el trabajo con clientes y proyectos.
+              En mi tiempo libre, disfruto jugar y compartir con mi hermana.
             </p>
           </div>
 
@@ -386,24 +393,24 @@
       
       <!-- Section Header -->
       <div class="flex items-center gap-3 mb-6">
-        <span class="font-mono text-xs text-hacker-gold uppercase tracking-widest font-bold bg-hacker-card px-3 py-1 rounded border border-hacker-border">
-          02 // FORMACIÓN_OFICIAL
+        <span class="font-sans text-xs text-hacker-gold font-semibold bg-hacker-card px-3 py-1 rounded border border-hacker-border">
+          Formación
         </span>
         <div class="h-px bg-hacker-border flex-1"></div>
       </div>
 
       <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
         <div>
-          <h2 class="text-3xl sm:text-4xl font-black font-mono text-white tracking-tight uppercase">
-            CURSOS &amp; CERTIFICADOS // <span class="text-hacker-cyan">KODLAND GRADUATE</span>
+          <h2 class="text-3xl sm:text-4xl font-black text-white tracking-tight">
+            Formación en programación
           </h2>
           <p class="text-slate-300 text-sm sm:text-base font-sans mt-2 max-w-2xl">
-            Entrenamiento formal en lógica computacional, algoritmia y desarrollo estructurado.
+            Formación en programación con Python y Scratch, realizada en Kodland.
           </p>
         </div>
         <div class="flex items-center gap-2 font-mono text-xs text-hacker-green bg-hacker-card px-3 py-2 rounded border border-hacker-border">
           <span class="material-symbols-outlined text-[16px]">verified</span>
-          <span class="">3 CERTIFICACIONES COMPLETADAS</span>
+          <span class="">3 cursos realizados</span>
         </div>
       </div>
 
@@ -417,24 +424,22 @@
           <div>
             <div class="flex items-center justify-between mb-4">
               <span class="font-mono text-xs text-hacker-cyan font-bold bg-[#010736] px-2.5 py-1 rounded border border-hacker-border">
-                ACADEMIA: KODLAND
+                Kodland
               </span>
               <span class="material-symbols-outlined text-hacker-gold text-2xl">workspace_premium</span>
             </div>
 
             <h3 class="text-xl font-bold font-mono text-white mb-1 group-hover:text-hacker-cyan transition-colors">Python Basic</h3>
-            <p class="font-mono text-xs text-hacker-muted mb-4">Kodland International EdTech</p>
-
             <p class="text-sm text-slate-300 font-sans leading-relaxed mb-6">
-              Fundamentos de programación: estructuras de control, tipos de datos, condicionales, bucles <code class="text-hacker-gold">while/for</code> y diseño de algoritmos lógicos orientados a aplicaciones de consola y videojuegos.
+              Fundamentos de Python, incluyendo variables, condicionales y bucles, aplicados en ejercicios y programas sencillos.
             </p>
           </div>
 
           <div class="pt-4 border-t border-hacker-border/60 flex items-center justify-between font-mono text-xs">
-            <span class="text-hacker-muted">STATUS</span>
+            <span class="text-hacker-muted">Estado</span>
             <span class="text-hacker-green font-bold flex items-center gap-1">
               <span class="w-1.5 h-1.5 rounded-full bg-hacker-green"></span>
-              APROBADO // CERTIFICADO
+              Finalizado
             </span>
           </div>
         </div>
@@ -446,24 +451,22 @@
           <div>
             <div class="flex items-center justify-between mb-4">
               <span class="font-mono text-xs text-black font-bold bg-hacker-cyan px-2.5 py-1 rounded shadow">
-                NIVEL AVANZADO
+                Kodland
               </span>
               <span class="material-symbols-outlined text-hacker-cyan text-2xl">military_tech</span>
             </div>
 
-            <h3 class="text-xl font-bold font-mono text-white mb-1 text-glow-cyan">Python Pro</h3>
-            <p class="font-mono text-xs text-hacker-gold mb-4">Kodland International EdTech</p>
-
+            <h3 class="text-xl font-bold font-mono text-white mb-1">Python Pro</h3>
             <p class="text-sm text-slate-300 font-sans leading-relaxed mb-6">
-              Programación Orientada a Objetos (OOP), manejo de excepciones, manipulación de archivos y librerías, modularización y construcción de arquitecturas complejas de software listas para el mundo real.
+              Práctica de organización del código, manejo de archivos y tratamiento de errores en Python.
             </p>
           </div>
 
           <div class="pt-4 border-t border-hacker-border/60 flex items-center justify-between font-mono text-xs">
-            <span class="text-hacker-muted">STATUS</span>
+            <span class="text-hacker-muted">Estado</span>
             <span class="text-hacker-cyan font-bold flex items-center gap-1">
               <span class="w-1.5 h-1.5 rounded-full bg-hacker-cyan animate-pulse"></span>
-              GRADUADO // EXCELENCIA
+              Finalizado
             </span>
           </div>
         </div>
@@ -475,24 +478,22 @@
           <div>
             <div class="flex items-center justify-between mb-4">
               <span class="font-mono text-xs text-hacker-gold font-bold bg-[#010736] px-2.5 py-1 rounded border border-hacker-border">
-                ACADEMIA: KODLAND
+                Kodland
               </span>
               <span class="material-symbols-outlined text-hacker-gold text-2xl">smart_toy</span>
             </div>
 
             <h3 class="text-xl font-bold font-mono text-white mb-1 group-hover:text-hacker-gold transition-colors">Scratch</h3>
-            <p class="font-mono text-xs text-hacker-muted mb-4">Kodland International EdTech</p>
-
             <p class="text-sm text-slate-300 font-sans leading-relaxed mb-6">
-              Pensamiento computacional temprano, lógica de bloques, diseño de mecánicas de juego, eventos interactivos y bases de la creatividad y animación de personajes interactivos.
+              Introducción a la programación visual con bloques, eventos y creación de juegos interactivos.
             </p>
           </div>
 
           <div class="pt-4 border-t border-hacker-border/60 flex items-center justify-between font-mono text-xs">
-            <span class="text-hacker-muted">STATUS</span>
+            <span class="text-hacker-muted">Estado</span>
             <span class="text-hacker-green font-bold flex items-center gap-1">
               <span class="w-1.5 h-1.5 rounded-full bg-hacker-green"></span>
-              COMPLETADO // BASES CREATIVAS
+              Finalizado
             </span>
           </div>
         </div>
@@ -506,19 +507,19 @@
       
       <!-- Section Header -->
       <div class="flex items-center gap-3 mb-6">
-        <span class="font-mono text-xs text-hacker-cyan uppercase tracking-widest font-bold bg-hacker-card px-3 py-1 rounded border border-hacker-border">
-          03 // REPOSITORIO_BUILD
+        <span class="font-sans text-xs text-hacker-cyan font-semibold bg-hacker-card px-3 py-1 rounded border border-hacker-border">
+          Mis proyectos
         </span>
         <div class="h-px bg-hacker-border flex-1"></div>
       </div>
 
       <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
         <div>
-          <h2 class="text-3xl sm:text-4xl font-black font-mono text-white tracking-tight uppercase">
-            PROYECTOS DESTACADOS // <span class="text-hacker-gold">EN PRODUCCIÓN</span>
+          <h2 class="text-3xl sm:text-4xl font-black text-white tracking-tight">
+            Proyectos seleccionados
           </h2>
           <p class="text-slate-300 text-sm sm:text-base font-sans mt-2 max-w-2xl">
-            Soluciones reales construidas con código limpio, arquitectura tolerante a fallos y lógica interactiva.
+            Proyectos personales y académicos que muestran mi forma de trabajar y las tecnologías que utilizo.
           </p>
         </div>
       </div>
@@ -532,11 +533,11 @@
           <div>
             <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
               <div class="flex items-center gap-2">
-                <span class="w-3 h-3 rounded-full bg-hacker-green animate-pulse"></span>
-                <span class="font-mono text-xs text-hacker-green font-bold">ONLINE &amp; OPERACIONAL</span>
+                <span class="w-2.5 h-2.5 rounded-full bg-hacker-green"></span>
+                <span class="font-mono text-xs text-hacker-green font-bold">Proyecto personal</span>
               </div>
               <span class="font-mono text-xs text-hacker-gold bg-[#010736] px-3 py-1 rounded border border-hacker-border">
-                DISCORD GATEWAY API
+                Bot para Discord
               </span>
             </div>
 
@@ -546,30 +547,30 @@
               </div>
               <div>
                 <h3 class="text-2xl sm:text-3xl font-black font-mono text-white">NexBit</h3>
-                <p class="font-mono text-xs text-hacker-cyan">Bot Avanzado de Discord // Moderación, Utilidad &amp; Automatización</p>
+                <p class="font-mono text-xs text-hacker-cyan">Bot de moderación y utilidad para Discord</p>
               </div>
             </div>
 
             <p class="text-slate-300 text-sm sm:text-base font-sans leading-relaxed mb-6 mt-4">
-              <strong class="text-white">NexBit</strong> es un bot integral diseñado para servidores de Discord exigentes. Maneja eventos asíncronos en tiempo real, comandos Slash personalizables, automatización de roles, sistemas de entretenimiento interactivo para miembros y respuestas dinámicas con alta resiliencia.
+              <strong class="text-white">NexBit</strong> es un bot de Discord que estoy desarrollando para facilitar tareas de moderación y ofrecer funciones útiles e interactivas a una comunidad.
             </p>
 
             <!-- Feature Bullet List in Terminal Format -->
             <div class="bg-[#010736] rounded-lg p-4 font-mono text-xs space-y-2 border border-hacker-border/80 mb-6">
               <div class="flex items-center gap-2 text-hacker-muted">
                 <span class="text-hacker-cyan">&gt;</span>
-                <span class="text-white">Arquitectura:</span>
-                <span class="">Asíncrona basada en Python con Discord.py / Webhooks</span>
+                <span class="text-white">Tecnologías:</span>
+                <span class="">Python y Discord.py</span>
               </div>
               <div class="flex items-center gap-2 text-hacker-muted">
                 <span class="text-hacker-cyan">&gt;</span>
-                <span class="text-white">Capacidades:</span>
-                <span class="">Moderación rápida, registro de logs y roles automáticos</span>
+                <span class="text-white">Funciones:</span>
+                <span class="">Comandos, moderación y gestión de roles</span>
               </div>
               <div class="flex items-center gap-2 text-hacker-muted">
                 <span class="text-hacker-cyan">&gt;</span>
                 <span class="text-white">Interacción:</span>
-                <span class="">Botones interactivos, selectores y mensajes embebidos</span>
+                <span class="">Botones y mensajes interactivos</span>
               </div>
             </div>
           </div>
@@ -579,10 +580,10 @@
               <span class="px-2.5 py-1 bg-hacker-accent/60 text-hacker-gold rounded">Python</span>
               <span class="px-2.5 py-1 bg-hacker-accent/60 text-hacker-cyan rounded">Discord.py</span>
               <span class="px-2.5 py-1 bg-hacker-accent/60 text-slate-300 rounded">Asyncio</span>
-              <span class="px-2.5 py-1 bg-hacker-accent/60 text-hacker-green rounded">24/7 Hosting</span>
+              <span class="px-2.5 py-1 bg-hacker-accent/60 text-hacker-green rounded">Automatización</span>
             </div>
             <a href="#contacto" class="font-mono text-xs text-hacker-cyan hover:text-white flex items-center gap-1 font-bold">
-              <span class="">SOLICITAR BOT SIMILAR</span>
+              <span class="">Consultar un proyecto</span>
               <span class="material-symbols-outlined text-sm">arrow_forward</span>
             </a>
           </div>
@@ -595,9 +596,9 @@
           <div>
             <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
               <span class="font-mono text-xs text-hacker-gold font-bold bg-[#010736] px-3 py-1 rounded border border-hacker-border">
-                PROYECTO PYTHON BASIC
+                Proyecto académico
               </span>
-              <span class="font-mono text-xs text-hacker-muted">GAME DEV LOGIC</span>
+              <span class="font-mono text-xs text-hacker-muted">Python</span>
             </div>
 
             <div class="flex items-center gap-3 mb-3">
@@ -606,32 +607,32 @@
               </div>
               <div>
                 <h3 class="text-xl sm:text-2xl font-black font-mono text-white">Elige la Puerta Correcta</h3>
-                <p class="font-mono text-xs text-hacker-gold">Juego de Supervivencia &amp; Decisiones en Python</p>
+                <p class="font-mono text-xs text-hacker-gold">Juego interactivo de decisiones</p>
               </div>
             </div>
 
             <p class="text-slate-300 text-sm font-sans leading-relaxed mb-6 mt-3">
-              Juego programado durante la certificación en Kodland. Implementa una máquina de estados lógicos, selección aleatoria ponderada, árboles de decisión, sistema de vidas/puntuación y bifurcaciones narrativas interactivas en consola.
+              Desarrollé este juego como parte del curso Python Basic de Kodland. El jugador elige una puerta y descubre el resultado de su decisión.
             </p>
 
             <!-- Gameplay Console Preview -->
             <div class="bg-[#010736] p-4 rounded-lg font-mono text-xs border border-hacker-border/80 text-slate-300 space-y-1.5 mb-6">
-              <div class="text-hacker-gold font-bold">&gt;&gt; ESTÁS FRENTE A 3 PUERTAS OSCURAS...</div>
-              <div class="">[1] Puerta de Hierro [2] Puerta de Madera [3] Puerta Runas</div>
-              <div class="text-hacker-cyan">&gt; input_choice = 2</div>
-              <div class="text-hacker-green">&gt; ¡Has encontrado el tesoro secreto! Score +100.</div>
+              <div class="text-hacker-gold font-bold">Hay tres puertas frente a ti...</div>
+              <div class="">[1] Hierro · [2] Madera · [3] Runas</div>
+              <div class="text-hacker-cyan">Elegiste la puerta 2</div>
+              <div class="text-hacker-green">¡Encontraste el tesoro! +100 puntos</div>
             </div>
           </div>
 
           <div class="flex flex-wrap items-center justify-between gap-4 pt-4 border-t border-hacker-border/60">
             <div class="flex flex-wrap gap-2 font-mono text-xs">
-              <span class="px-2.5 py-1 bg-hacker-accent/60 text-hacker-gold rounded">Algoritmia</span>
-              <span class="px-2.5 py-1 bg-hacker-accent/60 text-slate-300 rounded">Game Loops</span>
+              <span class="px-2.5 py-1 bg-hacker-accent/60 text-hacker-gold rounded">Lógica</span>
+              <span class="px-2.5 py-1 bg-hacker-accent/60 text-slate-300 rounded">Juegos</span>
               <span class="px-2.5 py-1 bg-hacker-accent/60 text-hacker-cyan rounded">Python</span>
             </div>
             <span class="font-mono text-xs text-hacker-green font-bold flex items-center gap-1">
               <span class="material-symbols-outlined text-[15px]">check_circle</span>
-              PROYECTO FINAL APROBADO
+              Curso Python Basic · Kodland
             </span>
           </div>
         </div>
@@ -640,24 +641,24 @@
     </section>
 
 
-    <!-- 5. HABILIDADES & SERVICIOS // MATRIZ TECNOLÓGICA -->
+    <!-- Lo que puedo hacer -->
     <section id="habilidades" class="max-w-7xl mx-auto px-4 sm:px-6 w-full scroll-mt-28">
       
       <!-- Section Header -->
       <div class="flex items-center gap-3 mb-6">
-        <span class="font-mono text-xs text-hacker-green uppercase tracking-widest font-bold bg-hacker-card px-3 py-1 rounded border border-hacker-border">
-          04 // MATRIZ_DE_SERVICIOS
+        <span class="font-sans text-xs text-hacker-green font-semibold bg-hacker-card px-3 py-1 rounded border border-hacker-border">
+          Servicios
         </span>
         <div class="h-px bg-hacker-border flex-1"></div>
       </div>
 
       <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
         <div>
-          <h2 class="text-3xl sm:text-4xl font-black font-mono text-white tracking-tight uppercase">
-            HABILIDADES &amp; SERVICIOS // <span class="text-hacker-cyan">SOLUCIONES DISPONIBLES</span>
+          <h2 class="text-3xl sm:text-4xl font-black text-white tracking-tight">
+            Soluciones para tu proyecto
           </h2>
           <p class="text-slate-300 text-sm sm:text-base font-sans mt-2 max-w-2xl">
-            Desarrollo a medida con Inteligencia Artificial, visión por computadora y despliegue rápido.
+            Soluciones digitales a medida para dar forma a ideas, proyectos y negocios.
           </p>
         </div>
       </div>
@@ -671,14 +672,14 @@
             <div class="w-12 h-12 rounded-lg bg-[#010736] border border-hacker-border flex items-center justify-center text-hacker-cyan mb-4 group-hover:scale-110 transition-transform">
               <span class="material-symbols-outlined text-2xl">web</span>
             </div>
-            <h3 class="text-lg font-bold font-mono text-white mb-2 group-hover:text-hacker-cyan transition-colors">Diseño Web Moderno</h3>
+            <h3 class="text-lg font-bold font-mono text-white mb-2 group-hover:text-hacker-cyan transition-colors">Sitios web a medida</h3>
             <p class="text-xs text-slate-300 font-sans leading-relaxed mb-4">
-              Creación de interfaces web atractivas, responsivas y veloces. Estilos visuales de alto impacto (hacker/cyber, corporativo o minimalista) adaptados a cualquier pantalla.
+              Presenta tu negocio o servicio con un sitio atractivo, claro y adaptable a celulares y computadoras.
             </p>
           </div>
           <div class="font-mono text-[11px] text-hacker-muted flex items-center gap-1.5 pt-3 border-t border-hacker-border/50">
             <span class="text-hacker-cyan">#</span>
-            <span class="">HTML5, TailwindCSS, UX/UI, Responsive</span>
+            <span class="">HTML, Tailwind CSS y diseño adaptable</span>
           </div>
         </div>
 
@@ -688,14 +689,14 @@
             <div class="w-12 h-12 rounded-lg bg-[#010736] border border-hacker-border flex items-center justify-center text-hacker-gold mb-4 group-hover:scale-110 transition-transform">
               <span class="material-symbols-outlined text-2xl">auto_awesome</span>
             </div>
-            <h3 class="text-lg font-bold font-mono text-white mb-2 group-hover:text-hacker-gold transition-colors">Creación de Webs con AI</h3>
+            <h3 class="text-lg font-bold font-mono text-white mb-2 group-hover:text-hacker-gold transition-colors">Integración de inteligencia artificial</h3>
             <p class="text-xs text-slate-300 font-sans leading-relaxed mb-4">
-              Integración de inteligencia artificial en sitios web: chatbots inteligentes, generación dinámica de contenidos, búsquedas semánticas y automatizaciones en tiempo real.
+              Incorpora funciones como asistentes conversacionales para ofrecer nuevas formas de interacción en tu sitio.
             </p>
           </div>
           <div class="font-mono text-[11px] text-hacker-muted flex items-center gap-1.5 pt-3 border-t border-hacker-border/50">
             <span class="text-hacker-gold">#</span>
-            <span class="">LLMs, Chatbots Web, Prompting, OpenAI API</span>
+            <span class="">Inteligencia artificial y chats</span>
           </div>
         </div>
 
@@ -705,14 +706,14 @@
             <div class="w-12 h-12 rounded-lg bg-[#010736] border border-hacker-border flex items-center justify-center text-hacker-green mb-4 group-hover:scale-110 transition-transform">
               <span class="material-symbols-outlined text-2xl">cloud_upload</span>
             </div>
-            <h3 class="text-lg font-bold font-mono text-white mb-2 group-hover:text-hacker-green transition-colors">Despliegue de Apps</h3>
+            <h3 class="text-lg font-bold font-mono text-white mb-2 group-hover:text-hacker-green transition-colors">Publicación de sitios y aplicaciones</h3>
             <p class="text-xs text-slate-300 font-sans leading-relaxed mb-4">
-              Publicación y puesta en marcha de aplicaciones en servidores en la nube, dominios personalizados, certificados SSL y monitoreo 24/7 para que tu app nunca se caiga.
+              Publica tu sitio o aplicación en internet y facilita el acceso a tus clientes y usuarios.
             </p>
           </div>
           <div class="font-mono text-[11px] text-hacker-muted flex items-center gap-1.5 pt-3 border-t border-hacker-border/50">
             <span class="text-hacker-green">#</span>
-            <span class="">Vercel, Render, Railway, Cloud Deploy, CI/CD</span>
+            <span class="">Vercel, Render y Railway</span>
           </div>
         </div>
 
@@ -724,12 +725,12 @@
             </div>
             <h3 class="text-lg font-bold font-mono text-white mb-2 group-hover:text-hacker-cyan transition-colors">Bots de Discord</h3>
             <p class="text-xs text-slate-300 font-sans leading-relaxed mb-4">
-              Desarrollo de bots potentes como <span class="text-hacker-cyan font-bold">NexBit</span>: automatización de comunidades, comandos a medida, roles automáticos y conexión con bases de datos.
+              Bots para Discord con comandos y herramientas útiles para comunidades, como <span class="text-hacker-cyan font-bold">NexBit</span>.
             </p>
           </div>
           <div class="font-mono text-[11px] text-hacker-muted flex items-center gap-1.5 pt-3 border-t border-hacker-border/50">
             <span class="text-hacker-cyan">#</span>
-            <span class="">Discord.py, Slash Commands, Webhooks, Sharding</span>
+            <span class="">Python y Discord.py</span>
           </div>
         </div>
 
@@ -739,14 +740,14 @@
             <div class="w-12 h-12 rounded-lg bg-[#010736] border border-hacker-border flex items-center justify-center text-hacker-gold mb-4 group-hover:scale-110 transition-transform">
               <span class="material-symbols-outlined text-2xl">memory</span>
             </div>
-            <h3 class="text-lg font-bold font-mono text-white mb-2 group-hover:text-hacker-gold transition-colors">Agentes AI Autónomos</h3>
+            <h3 class="text-lg font-bold font-mono text-white mb-2 group-hover:text-hacker-gold transition-colors">Asistentes con inteligencia artificial</h3>
             <p class="text-xs text-slate-300 font-sans leading-relaxed mb-4">
-              Diseño de flujos inteligentes donde agentes con IA toman decisiones, llaman herramientas (function calling), procesan información y resuelven tareas complejas solos.
+              Asistentes diseñados para responder consultas o apoyar tareas concretas.
             </p>
           </div>
           <div class="font-mono text-[11px] text-hacker-muted flex items-center gap-1.5 pt-3 border-t border-hacker-border/50">
             <span class="text-hacker-gold">#</span>
-            <span class="">Autonomous Workflows, Tool Calling, Multi-agent</span>
+            <span class="">Asistentes con inteligencia artificial</span>
           </div>
         </div>
 
@@ -756,14 +757,14 @@
             <div class="w-12 h-12 rounded-lg bg-[#010736] border border-hacker-border flex items-center justify-center text-hacker-cyan mb-4 group-hover:scale-110 transition-transform">
               <span class="material-symbols-outlined text-2xl">visibility</span>
             </div>
-            <h3 class="text-lg font-bold font-mono text-white mb-2 group-hover:text-hacker-cyan transition-colors">Visión por Ordenador</h3>
+            <h3 class="text-lg font-bold font-mono text-white mb-2 group-hover:text-hacker-cyan transition-colors">Análisis de imágenes</h3>
             <p class="text-xs text-slate-300 font-sans leading-relaxed mb-4">
-              Reconocimiento de imágenes, detección de objetos en vídeo, procesamiento de fotogramas con OpenCV y modelos de computer vision aplicados a problemas reales.
+              Análisis de imágenes y detección de objetos con herramientas como OpenCV.
             </p>
           </div>
           <div class="font-mono text-[11px] text-hacker-muted flex items-center gap-1.5 pt-3 border-t border-hacker-border/50">
             <span class="text-hacker-cyan">#</span>
-            <span class="">OpenCV, Detección de Objetos, Image Processing</span>
+            <span class="">OpenCV y reconocimiento de objetos</span>
           </div>
         </div>
 
@@ -776,10 +777,10 @@
         <div>
           <p class="text-sm font-semibold text-hacker-cyan mb-3">Contacto</p>
           <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
-            ¿Tienes una idea? <span class="text-slate-300">Hablemos.</span>
+            Hagamos realidad tu idea. <span class="text-slate-300">Empecemos por conversar.</span>
           </h2>
           <p class="text-slate-300 text-sm sm:text-base font-sans mt-2 max-w-2xl">
-            Cuéntame qué te gustaría crear y vemos cómo hacerlo realidad.
+            Comparte los detalles de tu proyecto y conversemos sobre una propuesta que se ajuste a lo que necesitas.
           </p>
         </div>
       </div>
@@ -787,11 +788,11 @@
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
         
         <div class="lg:col-span-7 bg-hacker-card/80 border border-white/10 rounded-2xl shadow-xl overflow-hidden backdrop-blur-md">
-          <form id="contactForm" onsubmit="event.preventDefault(); window.submitMessage();" class="p-6 sm:p-8 flex flex-col gap-5">
+          <form id="contactForm" onsubmit="window.submitMessage(event);" class="p-6 sm:p-8 flex flex-col gap-5">
             <!-- Name Input -->
             <div class="flex flex-col gap-1.5">
               <label for="name" class="font-sans text-sm font-medium text-slate-200">
-                Tu nombre
+                Nombre
               </label>
               <div class="relative flex items-center">
                 <input required="" id="name" type="text" placeholder="¿Cómo te llamas?" class="w-full bg-[#010736]/70 border border-white/10 focus:border-hacker-cyan rounded-lg px-4 py-3 font-sans text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-1 focus:ring-hacker-cyan transition-all">
@@ -801,7 +802,7 @@
             <!-- Email Input -->
             <div class="flex flex-col gap-1.5">
               <label for="email" class="font-sans text-sm font-medium text-slate-200">
-                Tu correo
+                Correo electrónico
               </label>
               <input required="" id="email" type="email" placeholder="tu@correo.com" class="w-full bg-[#010736]/70 border border-white/10 focus:border-hacker-cyan rounded-lg px-4 py-3 font-sans text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-1 focus:ring-hacker-cyan transition-all">
             </div>
@@ -809,16 +810,17 @@
             <!-- Service Select -->
             <div class="flex flex-col gap-1.5">
               <label for="service" class="font-sans text-sm font-medium text-slate-200">
-                ¿En qué te puedo ayudar?
+                ¿Qué necesitas?
               </label>
-              <select id="service" class="w-full bg-[#010736]/70 border border-white/10 focus:border-hacker-cyan rounded-lg px-4 py-3 font-sans text-sm text-white focus:outline-none focus:ring-1 focus:ring-hacker-cyan transition-all cursor-pointer">
-                <option value="Bot de Discord">Bot de Discord (NexBit style)</option>
-                <option value="Creacion de Webs con AI">Creación de Webs con AI</option>
-                <option value="Diseño Web">Diseño Web Completo</option>
-                <option value="Despliegue de Apps">Despliegue &amp; Hosting de Apps</option>
-                <option value="Agentes AI">Agente AI Autónomo</option>
-                <option value="Vision por ordenador">Visión por Ordenador</option>
-                <option value="Otro">Consulta General / Otro Proyecto</option>
+              <select required id="service" class="w-full bg-[#010736]/70 border border-white/10 focus:border-hacker-cyan rounded-lg px-4 py-3 font-sans text-sm text-white focus:outline-none focus:ring-1 focus:ring-hacker-cyan transition-all cursor-pointer">
+                <option value="" selected disabled>Selecciona un tema</option>
+                <option value="Bot de Discord">Bot para Discord</option>
+                <option value="Creacion de Webs con AI">Una página web con IA</option>
+                <option value="Diseño Web">Diseño web</option>
+                <option value="Despliegue de Apps">Publicación de una página o aplicación</option>
+                <option value="Agentes AI">Asistente con inteligencia artificial</option>
+                <option value="Vision por ordenador">Análisis de imágenes</option>
+                <option value="Otro">Otra idea</option>
               </select>
             </div>
 
@@ -834,23 +836,15 @@
             <div class="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4">
               <span class="font-sans text-xs text-slate-400 flex items-center gap-1.5">
                 <span class="material-symbols-outlined text-[15px] text-hacker-green">lock</span>
-                <span class="">Tu información se usará solo para responderte.</span>
+                <span class="">Ejemplo ficticio; el mensaje se preparará en tu aplicación de correo.</span>
               </span>
 
               <button type="submit" id="submitBtn" class="px-6 py-3 bg-hacker-cyan text-[#010736] font-sans font-bold text-sm rounded-full hover:bg-white transition-all flex items-center justify-center gap-2 cursor-pointer">
-                <span class="">Enviar mensaje</span>
+                <span class="">Enviar consulta</span>
                 <span class="material-symbols-outlined text-lg">arrow_forward</span>
               </button>
             </div>
 
-            <!-- Success Alert Notification -->
-            <div id="successNotice" class="hidden mt-3 p-4 bg-[#010736] border border-hacker-green/50 rounded-lg font-sans text-sm text-hacker-green flex items-center gap-3">
-              <span class="material-symbols-outlined text-xl">check_circle</span>
-              <div>
-                <span class="font-bold block">¡Mensaje enviado!</span>
-                <span class="text-slate-300">Gracias por escribirme. Te responderé pronto.</span>
-              </div>
-            </div>
           </form>
         </div>
 
@@ -860,7 +854,7 @@
             <div class="flex items-center justify-between mb-4">
               <span class="font-sans text-sm text-slate-300 flex items-center gap-2">
                 <span class="w-2 h-2 rounded-full bg-hacker-green animate-pulse"></span>
-                También puedes escribirme
+                Contacto directo
               </span>
               <span class="material-symbols-outlined text-hacker-green text-2xl">chat</span>
             </div>
@@ -910,9 +904,9 @@
           <div class="px-1 text-sm text-slate-400 leading-relaxed">
             <div class="flex items-center gap-2 text-slate-200 font-medium mb-1">
               <span class="material-symbols-outlined text-lg text-hacker-cyan">schedule</span>
-              Disponible para conversar
+              ¿Prefieres escribirme directamente?
             </div>
-            Escríbeme por el medio que prefieras y cuéntame tu idea.
+            Puedes escribirme por correo o WhatsApp. Te responderé en cuanto pueda.
           </div>
 
         </div>
@@ -925,9 +919,9 @@
   <footer class="w-full border-t border-white/10 py-7 px-4 sm:px-6 relative z-10">
     <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-slate-400">
       <a href="#inicio" class="font-bold text-white hover:text-hacker-cyan transition-colors">
-        Aaron<span class="text-hacker-cyan">.</span>
+        <span class="handwritten-name">Aaron</span><span class="text-hacker-cyan">.</span>
       </a>
-      <span>© 2025 Aaron. Hecho con dedicación.</span>
+      <span>© <span id="currentYear"></span> <span class="handwritten-name">Aaron</span>. Todos los derechos reservados.</span>
       <a href="#inicio" class="inline-flex items-center gap-1 hover:text-white transition-colors">
         Volver arriba
         <span class="material-symbols-outlined text-base">arrow_upward</span>
@@ -935,32 +929,228 @@
     </div>
   </footer>
 
-  <!-- Script for form interaction -->
+  <!-- Form submission and page interactions -->
   <script>
-    window.submitMessage = function() {
-      const btn = document.getElementById('submitBtn');
-      const notice = document.getElementById('successNotice');
-      const form = document.getElementById('contactForm');
-      
-      const orig = btn.innerHTML;
-      btn.innerHTML = '<span class="material-symbols-outlined animate-spin text-base">autorenew</span><span>Enviando...</span>';
-      btn.disabled = true;
+    window.submitMessage = function(event) {
+      event.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const service = document.getElementById('service').selectedOptions[0].textContent;
+      const message = document.getElementById('msg').value.trim();
+      const subject = `Consulta sobre ${service}`;
+      const body = `Hola, soy ${name}.\nMi correo: ${email}\n\n${message}`;
 
-      setTimeout(() => {
-        btn.innerHTML = orig;
-        btn.disabled = false;
-        notice.classList.remove('hidden');
-        form.reset();
-
-        setTimeout(() => {
-          notice.classList.add('hidden');
-        }, 6000);
-      }, 800);
+      window.location.href = `mailto:aaronysaiasplay@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     };
+
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+    const contactForm = document.getElementById('contactForm');
+    const contactDemoFields = [
+      { input: document.getElementById('name'), placeholder: '¿Cómo te llamas?' },
+      { input: document.getElementById('email'), placeholder: 'tu@correo.com' },
+      { input: document.getElementById('service'), placeholder: 'Selecciona un tema' },
+      { input: document.getElementById('msg'), placeholder: '¿Qué tienes en mente?' }
+    ];
+    const contactExamples = [
+      {
+        name: 'Laura Méndez',
+        email: 'laura.mendez@example.com',
+        service: 'Diseño web',
+        message: 'Quiero una página para mi cafetería.'
+      },
+      {
+        name: 'Diego Ramos',
+        email: 'diego.ramos@example.com',
+        service: 'Bot para Discord',
+        message: 'Busco un bot para mi comunidad.'
+      },
+      {
+        name: 'Sofía Torres',
+        email: 'sofia.torres@example.com',
+        service: 'Asistente con inteligencia artificial',
+        message: 'Necesito responder consultas frecuentes.'
+      },
+      {
+        name: 'Mateo Castillo',
+        email: 'mateo.castillo@example.com',
+        service: 'Publicación de una página o aplicación',
+        message: 'Quiero publicar mi tienda en línea.'
+      },
+      {
+        name: 'Valentina Cruz',
+        email: 'valentina.cruz@example.com',
+        service: 'Una página web con IA',
+        message: 'Me interesa agregar un chat a mi sitio.'
+      },
+      {
+        name: 'Gabriel Reyes',
+        email: 'gabriel.reyes@example.com',
+        service: 'Análisis de imágenes',
+        message: 'Quiero organizar fotos de mis productos.'
+      },
+      {
+        name: 'Camila Herrera',
+        email: 'camila.herrera@example.com',
+        service: 'Otra idea',
+        message: 'Tengo una idea y quisiera conversar.'
+      }
+    ];
+
+    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      let demoTimer;
+      let exampleIndex = 0;
+      let fieldIndex = 0;
+      let characterIndex = 0;
+      let deleting = false;
+      let demoStopped = false;
+
+      const setDemoPlaceholder = (field, value, showCaret = true) => {
+        const text = `${value}${showCaret ? '|' : ''}`;
+        if (field.input.tagName === 'SELECT') {
+          field.input.options[0].textContent = text;
+        } else {
+          field.input.placeholder = text;
+        }
+      };
+
+      const restoreContactPlaceholders = () => {
+        contactDemoFields.forEach((field) => {
+          if (field.input.tagName === 'SELECT') {
+            field.input.options[0].textContent = field.placeholder;
+          } else {
+            field.input.placeholder = field.placeholder;
+          }
+        });
+      };
+
+      const animateContactExample = () => {
+        if (demoStopped) return;
+
+        const example = contactExamples[exampleIndex];
+        const field = contactDemoFields[fieldIndex];
+        const value = example[['name', 'email', 'service', 'message'][fieldIndex]];
+
+        if (!deleting) {
+          characterIndex += 1;
+          setDemoPlaceholder(field, value.slice(0, characterIndex), characterIndex < value.length);
+
+          if (characterIndex === value.length) {
+            fieldIndex += 1;
+            characterIndex = 0;
+
+            if (fieldIndex === contactDemoFields.length) {
+              fieldIndex = contactDemoFields.length - 1;
+              deleting = true;
+              demoTimer = window.setTimeout(animateContactExample, 1800);
+              return;
+            }
+
+            demoTimer = window.setTimeout(animateContactExample, 350);
+            return;
+          }
+        } else {
+          characterIndex -= 1;
+          setDemoPlaceholder(field, value.slice(0, characterIndex), characterIndex > 0);
+
+          if (characterIndex === 0) {
+            fieldIndex -= 1;
+            if (fieldIndex < 0) {
+              exampleIndex = (exampleIndex + 1) % contactExamples.length;
+              fieldIndex = 0;
+              deleting = false;
+              demoTimer = window.setTimeout(animateContactExample, 650);
+              return;
+            }
+            const previousValue = contactExamples[exampleIndex][['name', 'email', 'service', 'message'][fieldIndex]];
+            characterIndex = previousValue.length;
+            demoTimer = window.setTimeout(animateContactExample, 180);
+            return;
+          }
+        }
+
+        demoTimer = window.setTimeout(animateContactExample, deleting ? 24 : 48);
+      };
+
+      demoTimer = window.setTimeout(animateContactExample, 900);
+      contactForm.addEventListener('focusin', () => {
+        demoStopped = true;
+        window.clearTimeout(demoTimer);
+        restoreContactPlaceholders();
+      }, { once: true });
+    }
+
+    const heroPhrase = document.getElementById('heroPhrase');
+    const heroPhrases = [
+      'Una web para mostrar tu negocio.',
+      'Un bot para organizar tu comunidad.',
+      'Un asistente de IA para responder consultas.',
+      'Una web para presentar tus servicios.'
+    ];
+
+    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      let phraseIndex = 0;
+      let characterIndex = heroPhrases[0].length;
+      let deleting = true;
+
+      const animateHeroPhrase = () => {
+        const phrase = heroPhrases[phraseIndex];
+
+        if (deleting) {
+          characterIndex -= 1;
+          heroPhrase.textContent = phrase.slice(0, characterIndex);
+        } else {
+          characterIndex += 1;
+          heroPhrase.textContent = phrase.slice(0, characterIndex);
+        }
+
+        if (deleting && characterIndex === 0) {
+          deleting = false;
+          phraseIndex = (phraseIndex + 1) % heroPhrases.length;
+        } else if (!deleting && characterIndex === heroPhrases[phraseIndex].length) {
+          deleting = true;
+          window.setTimeout(animateHeroPhrase, 1800);
+          return;
+        }
+
+        window.setTimeout(animateHeroPhrase, deleting ? 38 : 68);
+      };
+
+      window.setTimeout(animateHeroPhrase, 1800);
+    } else {
+      heroPhrase.classList.remove('typewriter-caret');
+    }
+
+    document.querySelectorAll('details nav a').forEach((link) => {
+      link.addEventListener('click', () => {
+        link.closest('details').open = false;
+      });
+    });
 
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     if (!prefersReducedMotion) {
+      if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+        const pointerAura = document.getElementById('pointerAura');
+        let pointerFrame;
+
+        document.addEventListener('pointermove', (event) => {
+          if (pointerFrame) {
+            cancelAnimationFrame(pointerFrame);
+          }
+          pointerFrame = requestAnimationFrame(() => {
+            pointerAura.style.setProperty('--pointer-x', `${event.clientX}px`);
+            pointerAura.style.setProperty('--pointer-y', `${event.clientY}px`);
+            pointerAura.classList.add('is-active');
+            pointerFrame = null;
+          });
+        }, { passive: true });
+
+        document.addEventListener('pointerleave', () => {
+          pointerAura.classList.remove('is-active');
+        });
+      }
+
       const revealTargets = document.querySelectorAll('main > section, main > section [class*="bg-hacker-card"][class*="border"][class*="rounded-xl"]');
 
       if ('IntersectionObserver' in window) {
@@ -982,26 +1172,6 @@
         revealTargets.forEach((element) => element.classList.add('is-visible'));
       }
 
-      if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
-        const pointerAura = document.getElementById('pointerAura');
-        let pointerFrame;
-
-        document.addEventListener('pointermove', (event) => {
-          if (pointerFrame) {
-            cancelAnimationFrame(pointerFrame);
-          }
-          pointerFrame = requestAnimationFrame(() => {
-            pointerAura.style.setProperty('--pointer-x', `${event.clientX}px`);
-            pointerAura.style.setProperty('--pointer-y', `${event.clientY}px`);
-            pointerAura.classList.add('is-active');
-            pointerFrame = null;
-          });
-        }, { passive: true });
-
-        document.addEventListener('pointerleave', () => {
-          pointerAura.classList.remove('is-active');
-        });
-      }
     } else {
       document.querySelectorAll('main > section, main > section [class*="bg-hacker-card"][class*="border"][class*="rounded-xl"]')
         .forEach((element) => element.classList.add('is-visible'));
